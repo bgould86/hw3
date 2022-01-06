@@ -19,7 +19,7 @@ function generatePassword() {
   } else {
     //user defines what type of characters their password should contain
     let useLower = confirm("Do you want lowercase letters to be used?");
-    let useUpper = confirm("Do you want to upper case letters to be used?");
+    let useUpper = confirm("Do you want to uppercase letters to be used?");
     let useNumbers = confirm("Do you want numbers to be used?");
     let useSpecialCharacters = confirm("Do you want special characters to be used?");
 

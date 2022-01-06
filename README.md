@@ -11,4 +11,4 @@ Create an application that enables employees to generate random passwords based 
 ## Links to Application
 
 - Here is the repo: [bgould86/portfolio](https://github.com/bgould86/hw3)
-- Here is the pages: [bgould86/pages](https://bgould86.github.io/)
+- Here is the pages: [bgould86/pages](https://bgould86.github.io/hw3/)
