@@ -2,14 +2,14 @@ let generateBtn = document.querySelector("#generate");
 // character arrays
 let lcLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 let ucLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-let pwNumbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 let specialCharacters = ["`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "+", "=", "_", "?"];
 
 // generatePassword
 // return a final password as a string
 function generatePassword() {
-  let pwBank = [];
-  let pwActive = [];
+  let passwordRepo = [];
+  let password = [];
   //create a password of a specific length
   let pwLength = prompt("Passwords should be between 8 and 128 charcters in length. How long has this been going on?");
   //ensure user specified length fits requirements
@@ -25,23 +25,23 @@ function generatePassword() {
 
     //loop through charachter arrays
     if (useLower === true) {
-      pwBank = pwBank.concat(lcLetters);
-      randomChoice(lcLetters, pwActive);
+      passwordRepo = passwordRepo.concat(lcLetters);
+      randomChoice(lcLetters, password);
     }
 
     if (useUpper === true) {
-      pwBank = pwBank.concat(ucLetters);
-      randomChoice(ucLetters, pwActive);
+      passwordRepo = passwordRepo.concat(ucLetters);
+      randomChoice(ucLetters, password);
     }
 
     if (useNumbers === true) {
-      pwBank = pwBank.concat(pwNumbers);
-      randomChoice(pwNumbers, pwActive);
+      passwordRepo = passwordRepo.concat(numbers);
+      randomChoice(numbers, password);
     }
 
     if (useSpecialCharacters === true) {
-      pwBank = pwBank.concat(specialCharacters);
-      randomChoice(specialCharacters, pwActive);
+      passwordRepo = passwordRepo.concat(specialCharacters);
+      randomChoice(specialCharacters, password);
     }
 
     //ensure that user chose at least one character type for their password
@@ -50,16 +50,16 @@ function generatePassword() {
       return null;
     } else {
       // grab one random letter from each array
-      let initialPasswordLength = pwLength - pwActive.length;
+      let initialPasswordLength = pwLength - password.length;
       for (let i = 0; i < initialPasswordLength; i++) {
-        let randomItem = pwBank[Math.floor(Math.random() * pwBank.length)];
-        pwActive.push(`${randomItem}`);
+        let randomItem = passwordRepo[Math.floor(Math.random() * passwordRepo.length)];
+        password.push(`${randomItem}`);
       }
     }
   }
 
   //convert password array back to string
-  return pwActive.join("");
+  return password.join("");
 }
 
 // Write password to the #password input
@@ -70,9 +70,9 @@ function writePassword() {
 }
 
 //randomize character choice function
-function randomChoice(array, pwActive) {
+function randomChoice(array, password) {
   let randomItem = array[Math.floor(Math.random() * array.length)];
-  pwActive.push(`${randomItem}`);
+  password.push(`${randomItem}`);
 }
 
 // event listener to generate button
